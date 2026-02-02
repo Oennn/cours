@@ -1,0 +1,142 @@
+Vehicule v = new Voiture();
+
+Type de la référence (statique) → Vehicule
+Type de l’objet réel (dynamique) → Voiture
+
+🔑 Le type de la référence détermine ce que tu PEUX appeler
+🔑 Le type de l’objet détermine ce qui est EXÉCUTÉ
+🔑 La référence limite l’accès, pas l’objet
+
+"Voiture extends Vehicule"
+
+Grâce à l’héritage, une Voiture est aussi un Vehicule
+
+EX:
+
+
+class Vehicule {
+    void freiner() {
+        System.out.println("Vehicule freine");
+    }
+    void avancer() {
+        System.out.println("Le véhicule avance");
+    }
+}
+
+class Voiture extends Vehicule {
+    @Override
+    void avancer() {
+        System.out.println("La voiture avance");
+    }
+}
+
+Vehicule v = new Voiture();
+v.avancer();
+v.freiner();
+
+🟢 Résultat :
+
+La voiture avance
+Vehicule freine
+➡️ Même si la référence est Vehicule, Java appelle la méthode de Voiture
+➡️ Méthode commune héritée seulement
+========================================================
+🔑 Toute méthode NON static, NON final, NON private est virtuelle par défaut
+
+
+Véhicule[] parcAuto = new Véhicule[2];
+
+Cette ligne crée :
+
+✅ un tableau
+
+❌ pas d’objets Véhicule
+
+========================================================
+l’accès dépend aussi des modificateurs (public, private, etc.)
+
+class Voiture {
+    public void ouvrirCoffre() {}
+    private void nettoyerCoffre() {}
+}
+ouvrirCoffre() → accessible partout si la classe est publique
+
+nettoyerCoffre() → accessible uniquement dans Voiture
+
+==================================================
+import java.util.HashMap;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) { //tab nums
+        HashMap<Integer, Integer> map = new HashMap<>(); //hashMap de 2 int par 2 int
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i}; //la clé de la val complément, et i dans un tableau
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No solution found");
+    }
+}
+
+====================================================
+     private int value(char c) {
+        switch (c) {
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000;
+        }
+        return 0;
+    }
+
+
+=========================================================
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+
+        String first = strs[0];
+
+        for (int i = 0; i < first.length(); i++) {
+            char c = first.charAt(i);
+
+            for (int j = 1; j < strs.length; j++) {
+                if (strs[j].charAt(i) != c) {
+                    return first.substring(0, i);
+                }
+            }
+        }
+
+        return first;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

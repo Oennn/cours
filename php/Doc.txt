@@ -1,0 +1,38 @@
+$semaine=["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
+foreach( $semaine as $indice=>$val){
+    echo "semaine[$indice]=$val\n";
+}
+se dire que pays correspond a l'indice, 0,1,2... et x a la valeur.
+$pays_population=[
+    'France' => 67595000,
+    'Suède' => 9998000,
+    'Suisse' => 8417000,
+    'Kosovo' => 1820631,
+    'Malte' => 434403,
+    'Mexique' => 122273500,
+    'Allemagne' => 82800000,
+];
+foreach($pays_population as $pays => $x){
+    echo " La population de $pays est de $x habitants. \n";
+}
+=========================================================
+
+
+somme des val d un tableau, divisé par nb de val
+array_sum($tableau)/count($tableau);
+
+repetes motif i fois
+str_repeat($motif,$i)
+
+=============================================================
+mets en minuscules, le texte écrit de l'utilisateur
+mb_strtolower(readline('entrez une chaine de caractères : '));
+
+longueur d'une chaine de car
+mb_strlen($chaine)
+
+renvoie la postion du caractere/chaine
+mb_substr($chaine, $i, 1)
+
+renvoie soit true soit false si contient le caractere/chaine
+mb_strpos($voyelles, $lettre)

@@ -1,0 +1,46 @@
+CHAÎNE DE RESPONSABILITÉ
+
+Avant de suivre un lien :
+
+vérifier objet
+
+vérifier HP
+
+vérifier combat
+
+vérifier mort
+
+Tu ne veux PAS un énorme if.
+=====================================================
+abstract class Verificateur {
+    protected Verificateur suivant;
+
+    void setSuivant(Verificateur s) {
+        this.suivant = s;
+    }
+
+    boolean verifier(EtatJeu etat, Lien lien) {
+        if (traiter(etat, lien)) {
+            return suivant == null || suivant.verifier(etat, lien);
+        }
+        return false;
+    }
+
+    abstract boolean traiter(EtatJeu etat, Lien lien);
+}
+============================
+Exemple de maillons
+class VerifObjet extends Verificateur { }
+class VerifHP extends Verificateur { }
+class VerifCombat extends Verificateur { }
+
+
+
+VerifCle.traiter(...) → true
+VerifPV.traiter(...) → true
+VerifMonstre.traiter(...) → true
+suivant == null → true
+
+au lieu de 
+
+if (a && b && c && d && e) { ... }

@@ -1,0 +1,24 @@
+class ParagrapheFactory {
+    static Paragraphe creer(int id, String texte) {
+        TypeParagraphe type = TypeParagraphe.NORMAL;
+
+        if (texte.contains("FIN DE L'AVENTURE"))
+            type = TypeParagraphe.MORT;
+        else if (texte.contains("Vous avez gagné"))
+            type = TypeParagraphe.VICTOIRE;
+
+        return new Paragraphe(id, type);
+    }
+}
+enum TypeParagraphe {
+    NORMAL,
+    VICTOIRE,
+    MORT
+}
+class Paragraphe {
+    int id;
+    TypeParagraphe type;
+}
+Paragraphe p = ParagrapheFactory.creer(1, texte);
+Le code appelant ne décide pas du type
+“On sépare la création de l’utilisation”

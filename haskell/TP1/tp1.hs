@@ -163,11 +163,10 @@ addCarre x y = a+b
     b=y*y
 
 parite:: String ->Bool
-parite a
-  |(length a) `mod` 2 ==0 =True
-  |otherwise = False
+parite a = if(even (length a)) then True else False
 
-
+test:: String->String->Bool
+test a b = a == b
 
 
 

@@ -82,10 +82,8 @@ nb_repetitions x (y:ys)
 compacte :: [Int] -> [Int]
 
 compacte [] = []
-compacte (x:xs) =
-  let n = nb_repetitions x (x:xs)
-      reste = drop n (x:xs)
-  in n : x : compacte reste
+compacte (x:xs) = let n =nb_repetitions x (x:xs)
+               in n: compacte (drop n (x:xs))
 
 decompacte :: [Int] -> [Int]
 decompacte [] = []

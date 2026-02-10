@@ -133,7 +133,7 @@ code c = fromEnum c
 nextUpperCase :: Char -> Char
 nextUpperCase c
   |c == 'Z' ='A'
-  |otherwise = decode (code c + 1)
+  |otherwise = succ c
 
 nextUpperCase2 :: Char -> Char
 nextUpperCase2 c= if (c == 'Z') then 'A' 

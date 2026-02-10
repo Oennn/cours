@@ -32,9 +32,9 @@ puissanceT a b = aux a b 1
 
 mystery :: [Int] -> [Int]
 mystery [] = []
-mystery (x:xs) = mystery [y | y <- xs, y <= x]
-                    ++ [x]
-                    ++ mystery [y | y <- xs, y > x]
+mystery (x:xs) = concat [mystery [y | y <- xs, y <= x]
+                    , [x]
+                    , mystery [y | y <- xs, y > x]]
 -- trie en ordre croissant
 
 {-
@@ -70,9 +70,15 @@ compterPositifsRec (x:xs)
   |otherwise = compterPositifsRec xs
 
 
-occurrencePos:: String-> Char->[Int]
-occurrencePos [] _=[]
-occurrencePos s c= [i | (x,i)<- zip s [0..], x==c]
+occurrencePos:: String-> Char->Int
+occurrencePos [] _= -1
+occurrencePos s c
+  |occ_aux s c /= [] =head (occ_aux s c)
+  |otherwise = -1
+  where
+    occ_aux:: String-> Char->[Int]
+    occ_aux [] _=[]
+    occ_aux s c = [i | (x,i)<- zip s [0..], x==c]
 
 prefix:: String -> String -> Bool
 prefix _ []= True
@@ -88,3 +94,14 @@ contient [] _=False
 contient s1 s2
   |prefix s1 s2 =True
   |otherwise = contient (tail s1) s2
+
+
+tete:: Int-> [Int] -> [Int]
+tete 0 _ = []
+tete _ [] = []
+tete n x = [ (*n) a |a<-x ]
+
+
+or:: [Bool] -> Bool
+or = foldr (||) False
+

@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire</title>
+    <style>
+        body { max-width: 50em; margin: auto; }
+        #formulaire {
+            width: 20em; margin: auto; border: 1px solid grey; padding: .5em;
+            box-shadow: 1px 1px 1px 1px;
+        }
+        h2 { color: darkred; text-align: center; }
+        #formulaire .champ { margin: .5em; }
+        #formulaire .identite { display: flex; justify-content: space-around; }
+        #formulaire .langue p { width: 10em; text-align: left; margin: auto; }
+        #formulaire .couleur p { margin: auto; }
+        #formulaire .boutons-radio { display: flex; justify-content: space-around; }
+        #formulaire button { display: block; margin: auto; }
+        #formulaire .identite {
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2>Un formulaire HTML</h2>
+
+    <form action="form.php" method="post" id="formulaire">
+
+        <div class="champ identite">
+            <div>
+                <label for="nom">Votre nom</label>
+                <input type="text" name="nom" id="nom"/>
+            </div>
+
+            <div>
+                <label for="ville">Votre ville</label>
+                <select name="ville" id="ville">
+                    <option value="">-- Choisissez une ville --</option>
+                    <option value="Amiens">Amiens</option>
+                    <option value="Caen">Caen</option>
+                    <option value="Rouen">Rouen</option>
+                </select>
+            </div>
+        </div>
+
+        <fieldset class="champ langue">
+            <legend>Les langues que vous parlez</legend>
+            <p>
+                <input type="checkbox" name="langue[]" value="fr" id="langfr">
+                <label for="langfr">français</label>
+            </p>
+            <p>
+                <input type="checkbox" name="langue[]" value="en" id="langen">
+                <label for="langen">anglais</label>
+            </p>
+            <p>
+                <input type="checkbox" name="langue[]" value="de" id="langde">
+                <label for="langde">allemand</label>
+            </p>
+        </fieldset>
+        <fieldset class="champ couleur">
+            <legend>Votre couleur préférée</legend>
+            <div class="boutons-radio">
+                <p>
+                    <input type="radio" name="couleur" value="rouge" id="crouge">
+                    <label for="crouge">rouge</label>
+                </p>
+                <p>
+                    <input type="radio" name="couleur" value="bleu" id="cbleu">
+                    <label for="cbleu">bleu</label>
+                </p>
+                <p>
+                    <input type="radio" name="couleur" value="vert" id="cvert">
+                    <label for="cvert">vert</label>
+                </p>
+            </div>
+        </fieldset>
+        <div class="champ">
+            <button type="submit" id="ajouter">Envoyer</button>
+        </div>
+    </form>
+</body>
+</html>
+

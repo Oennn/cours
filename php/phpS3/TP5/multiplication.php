@@ -35,7 +35,7 @@ function afficherTable(int $borne): void {
     <h1>Table de multiplication</h1>
 
     <?php
-        if (isset($_GET['borne']) && !empty($_GET['borne'])){
+        if (!empty($_GET['borne'])){
             $borne=(int)$_GET['borne']; //si chaine de carac, devient 0
             if(!($borne>=1 && $borne<=100)){
                 $borne=10;

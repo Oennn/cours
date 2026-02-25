@@ -29,17 +29,17 @@ foreach($lignes as $ligne){
     }
 }
 function afficherTable($lignes): void {
-    echo "<table border='1'>"; 
-    // En-tête
+    echo "<table>";
+
     echo "<thead>";
     echo "<tr>";
-    echo "<th>IP</th>";
-    echo "<th>Date</th>";
-    echo "<th>Heure</th>";
+    echo "<th>Adresse IP du client</th>";
+    echo "<th>Jour/Mois/Année</th>";
+    echo "<th>Heure/Minute/Seconde</th>";
     echo "</tr>";
     echo "</thead>";
 
-    // Corps du tableau
+
     echo "<tbody>";
     foreach($lignes as $ligne){
         $parts = explode(',', $ligne);
@@ -64,6 +64,27 @@ $visite= "Visite de $ip le $date à $heure => Votre $NbVisites visite sur mon si
 <head>
     <meta charset="UTF-8">
     <title>Historique des visites</title>
+    <style>
+        body {
+            max-width: 50em;
+            margin: auto;
+            font-family: sans-serif;
+            display:block;
+        }
+        th{
+            background-color: #eee;
+        }
+        table {
+            border-collapse: collapse;
+            text-indent: initial;
+            border-spacing: 2px;
+        }
+        table th,
+        table td {
+            border: 1px solid #000;
+            padding: 6px;
+        }
+    </style>
 </head>
 <body>
     <h1>Bienvenue sur mon site</h1>

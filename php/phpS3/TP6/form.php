@@ -2,8 +2,8 @@
 
 $nom=isset($_POST['nom']) ? trim($_POST['nom']) : '';
 $ville=isset($_POST['ville']) ? trim($_POST['ville']) : '';
-$langue=isset($_POST['langue']) ? $_POST['langue'] : [];
-$couleur=isset($_POST['couleur']) ? $_POST['couleur'] : '';
+$langue= $_POST['langue'] ?? []; //plus court et opti
+$couleur= $_POST['couleur'] ?? '';
 
 
 if (empty($ville) || $langue===[] || empty($couleur) || is_numeric($nom)) {

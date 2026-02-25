@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET['nom']) && !empty($_GET['nom'])) { // si nom existe dans url et que sa valeur est pas vide (donc != de 0 null ou chaine vide)
+if ( !empty($_GET['nom'])) { // si nom existe dans url et que sa valeur est pas vide (donc != de 0 null ou chaine vide)
 
     $nom = $_GET['nom'];
     if ($nom === 'VotreNom') {
@@ -33,3 +33,5 @@ HTML;
 // il s affiche une page avec marqué ce qu il y a dans le html.
 //que le code d une page html
 ?>
+
+

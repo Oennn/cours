@@ -168,6 +168,8 @@ parite a = if(even (length a)) then True else False
 test:: String->String->Bool
 test a b = a == b
 
+test:: String
+
 
 
 

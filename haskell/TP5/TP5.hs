@@ -43,3 +43,30 @@ rmEgaux xs = filter (couple) xs
 
 rmChar2:: Char->String->String
 rmChar2 c s= [x | x<-s, x/=c]
+
+produitRec,produitFold :: [Int] -> Int
+produitRec []=1
+produitRec (x:xs)= x* produitRec xs
+produitFold x= foldr (*) 1 x
+
+
+etLogiqueRec,etLogiqueFold :: [Bool] -> Bool
+etLogiqueRec []= True
+etLogiqueRec (x:xs)= x && etLogiqueRec xs
+
+
+etLogiqueFold= foldr (&&) True
+
+
+concatRec,concatFold :: [[a]] -> [a]
+concatRec []=[]
+concatRec (x:xs)= x ++ concatRec xs
+
+concatFold = foldr (++) []
+
+rmCharsRec,rmCharsFold :: String -> String -> String
+rmCharsRec _ []=[]
+rmCharsRec s x= filter (`notElem` s) x
+
+rmCharsFold s x= foldr (\c acc -> if notElem c s then c:acc else acc) [] x
+--c  = caractere de l iteration, acc = ce qu on a deja construit depuis la droite, imaginer que l'on commence depuis la fin de la liste donc au depart acc = [] puis 'e' puis "ne" ...

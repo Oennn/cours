@@ -12,7 +12,7 @@
   <table width="100%">
     <tr>
       <td width="75%">
-        <?php echo $zonePrincipale; ?>
+        <?php echo isset($zonePrincipale) ? $zonePrincipale : ""; ?>
       </td>
 
       <td style="background-color:silver; padding:10px;">

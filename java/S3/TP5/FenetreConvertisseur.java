@@ -3,19 +3,18 @@ import javax.swing.*;
 public class FenetreConvertisseur extends JFrame {
 
     public FenetreConvertisseur() {
-
-        setTitle("Convertisseur de devises");
-        setSize(1200, 400);
+        setTitle("Convertisseur de Devises");
+        setSize(400, 150);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 
-        // On ajoute le JPanel
         add(new ConvertisseurPanel());
 
-        setLocationRelativeTo(null); // centre la fenêtre
         setVisible(true);
     }
 
     public static void main(String[] args) {
-        new FenetreConvertisseur();
+        SwingUtilities.invokeLater(() -> new FenetreConvertisseur());
     }
 }
+

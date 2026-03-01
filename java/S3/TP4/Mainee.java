@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class Mainee {
     public static void main(String[] args) {
         ArrayList<String> al=new ArrayList<>();
         al.add("A");

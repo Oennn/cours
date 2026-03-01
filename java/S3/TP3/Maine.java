@@ -1,4 +1,4 @@
-public class Main {
+public class Maine {
     public static void main(String[] args) {
 
         ListeChainee<Integer> liste = new ListeChainee<>();

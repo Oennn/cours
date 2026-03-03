@@ -245,12 +245,12 @@ function tablePersonnes(array $personnes): string {
         //   - ajouter une ligne <tr> ... </tr>
         //   - actions : ✏️ et 🗑️ (avec confirm JS)
         $html .= "<tr>";
-        $html .= "<td>{$nom}</td>";
-        $html .= "<td>{$prenom}</td>";
-        $html .= "<td>{$date}</td>";
+        $html .= "<td>$nom</td>";
+        $html .= "<td>$prenom</td>";
+        $html .= "<td>$date</td>";
         $html .= "<td>";
-        $html .= "<a href=\"{$urlEdit}\">✏️</a> ";
-        $html .= "<a href=\"{$urlDel}\" onclick=\"return confirm('Êtes-vous sûr ?')\">🗑️</a>";
+        $html .= "<a href=\"$urlEdit\">✏️</a> ";
+        $html .= "<a href=\"$urlDel\" onclick=\"return confirm('Êtes-vous sûr ?')\">🗑️</a>";
         $html .= "</td>";
         $html .= "</tr>";
     }

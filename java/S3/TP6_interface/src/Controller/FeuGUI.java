@@ -32,6 +32,6 @@ public class FeuGUI extends JFrame {
     public static void main(String[] args) {
         Feu f = new Feu();
         new FeuGUI(f);
-        new FeuGUI(f);
+
     }
 }

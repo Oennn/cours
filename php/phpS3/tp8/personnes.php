@@ -19,3 +19,26 @@ function connecter(): ?PDO
     }
 }
 $pdo = connecter();
+$requete = "SELECT id, nom, prenom, dateN FROM Personne ORDER BY id";
+$stmt = $pdo->query($requete);
+$personnes = $stmt->fetchAll();
+
+$html = "<table border='1'>";
+$html .= "<tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Date de naissance</th>
+          </tr>";
+
+foreach ($personnes as $personne) {
+    $html .= "<tr>";
+    $html .= "<td>" . $personne['id'] . "</td>";
+    $html .= "<td>" . $personne['nom'] . "</td>";
+    $html .= "<td>" . $personne['prenom'] . "</td>";
+    $html .= "<td>" . $personne['dateN'] . "</td>";
+    $html .= "</tr>";
+}
+
+$html .= "</table>";
+echo $html;

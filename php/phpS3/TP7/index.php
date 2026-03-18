@@ -38,18 +38,16 @@ switch ($action) {
     }
 
     if (count(array_filter($err)) === 0) {
-      // Créer et enregistrer la personne
+
       $p = new Personne($val["nom"], $val["prenom"], $val["dateN"]);
       ajouterPersonne($p, $fichier);
 
-      // Option 1 : Afficher un message de confirmation
+
       $zonePrincipale  = "<h2>Enregistrement OK</h2>";
       $zonePrincipale .= "<p><b>".h($val["nom"])." ".h($val["prenom"])."</b> — né(e) le <b>".h($val["dateN"])."</b>.</p>";
       $zonePrincipale .= "<p><a href='index.php?action=afficher'>Voir la liste</a></p>";
 
-      // Option 2 : OU rediriger immédiatement (décommentez les 2 lignes suivantes si vous préférez)
-      // header("Location:index.php?action=afficher");
-      // exit;
+
     } else {
       $zonePrincipale  = "<h2>Corriger le formulaire</h2>";
       $zonePrincipale .= formPersonne("enregistrer", $val, $err);
@@ -77,7 +75,6 @@ switch ($action) {
   case "update":
     $id = isset($_POST['id']) ? (int)$_POST['id'] : -1;
 
-    // Validation identique au cas "enregistrer"
     $val["nom"]    = trim((string)($_POST["nom"] ?? ""));
     if ($val["nom"] === "")    $err["nom"] = "Il manque un nom";
 
@@ -92,7 +89,7 @@ switch ($action) {
     }
 
     if (count(array_filter($err)) === 0) {
-      // Modifier la personne
+
       $p = new Personne($val["nom"], $val["prenom"], $val["dateN"]);
       $success = modifierPersonne($id, $p, $fichier);
 
